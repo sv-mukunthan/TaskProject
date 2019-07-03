@@ -1,0 +1,25 @@
+{
+  "name": "Task-project",
+  "version": "1.0.0",
+  "description": "A solution for all trustpilot app's reviews",
+  "author": "Mukunthan",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "npm rebuild node-sass",
+    "start": "node app.js",
+    "test": "nyc mocha --timeout=3000 --exit",
+    "lint": "eslint **/*.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.4.11",
+    "node-sass-middleware": "^0.11.0",
+    "path": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=8.11.1",
+    "npm": ">=5.6.0"
+  }
+}

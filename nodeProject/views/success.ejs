@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>user details</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600', rel='stylesheet', type='text/css'>
+	<link rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'>
+	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+</head>
+<body>
+	<div id="data"></div>
+	<div id="tabelUpdate">
+		<table border="1" bgcolor="lightblue">
+			<tbody>
+				<tr>
+					<th>name</th>
+					<th>email</th>
+					<th>age</th>
+					<th>phone</th>
+					<th>address</th>
+					<th>gender</th>
+					<th>edit</th>
+					<th>delete</th>
+				</tr>
+					<% for(var i=0; i < data.length; i++) { %>
+				<tr>
+					<td><%= data[i].name %></td>
+					<td><%= data[i].email %></td>
+					<td><%= data[i].age %></td>
+					<td><%= data[i].phone %></td>
+					<td><%= data[i].address %></td>
+					<td><%= data[i].gender %></td>
+					<td><a href="#" class="edit" data-toggle="modal" data-target="#myModal" id="<%= data[i].user_id %>">Edit</a></td>
+					<td><a href="#" clsss="delete" id="<%= data[i].user_id %>">Delete</a></td>
+				</tr>
+					<% } %>
+			</tbody>
+		</table>
+
+		<div class="modal fade" id="myModal" role="dialog">
+		    <div class="modal-dialog">
+			    <div class="modal-content">
+			        <div class="modal-header">
+			          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+			          	<h4 class="modal-title">Update User Details</h4>
+			        </div>
+			        <div class="modal-body">
+			        	<input type="hidden" name="user_id" id="user">
+			        	<label for="name"><b>Name</b></label>
+			          	<input type="text" name="name" id="name" required /><br>
+			          	<label for="email"><b>Email</b></label>
+			          	<input type="email" name="email" id="email" required /><br>
+			          	<label for="age"><b>age</b></label>
+			          	<input type="number" name="age" id="age" required /><br>
+			          	<label for="mobile"><b>Number</b></label>
+			          	<input type="number" name="mobile" id="mobile" required /><br>
+			          	<label for="address"><b>Enter Address</b></label>
+			          	<input type="text" name="address" id="address" required /><br>
+			          	<fieldset data-role="controlgroup">
+					        <legend>gender:</legend>
+					        <label for="male">Male</label>
+					        <input type="radio" name="gender" id="male" value="male" />
+					        <label for="female">Female</label>
+					        <input type="radio" name="gender" id="female" value="female">
+					    </fieldset>
+			        </div>
+			        <button id="update" class="update btn btn-primary">Update</button>
+			        <div class="modal-footer">
+			          	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+		      	</div>		      
+		    </div>
+		</div>
+	</div>
+</body>
+</html>
